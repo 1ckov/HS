@@ -10,66 +10,73 @@ public class LinkedList implements OrderedList {
 	//
 	// }
 
+	@SuppressWarnings("unused")
 	@Override
 	public void insert(Song song) {
-		ListNode currentNode;
+		ListNode newNode = new ListNode();
 		if (head == null) {
-			ListNode neuerKnoten = new ListNode();
-			neuerKnoten.setValue(song);
-			head = neuerKnoten;
-
-
-		} else {
-			currentNode = head.getNext();
-
-			if(head.getNext() == null){
-
-				ListNode newNoad = new ListNode();
-				int checker = song.compareTo(head.getValue());
-
-				if(checker == 1){
-					//sets newNode Nach head
-					head.setNext(newNoad);
-					newNoad.setValue(song);
-				}
-				else {
-					//sets Song als wert fuer head 
-					newNoad.setValue(head.getValue());
-					head.setValue(song);
-					head.setNext(newNoad);
-				}
+			head = newNode;
+		}
+		else {
+			ListNode nd = head;
+			if (nd.getValue().compareTo(song) == 1) {
+				newNode.setNext(nd);
+				head = newNode;
 			}
-			else {
+			else{
+				while(true){
+					nd.getNext();
+					if(nd == null){
+						break;
+					}
+					if(nd.getValue().compareTo(song) == 1){
+						newNode.setNext(nd);
+						nd = newNode;
+					}
+					
+				}
 				
-				int counter = -1;
-				int stopper = 1;
-
-				// Findet die position unsuren songs
-				while (stopper == 1 && currentNode != null) {
-					stopper = song.compareTo(currentNode.getValue());
-					currentNode = currentNode.getNext();
-					counter++;
-				}
-
-				//// neuen Knoten als erstes Element einfügen
-				if (counter == 0) {
-					ListNode newNode = new ListNode();
-					newNode.setValue(song);
-					newNode.setNext(head);
-					head = newNode;
-				}
-
-				// fuegt song for current song in die liste
-				else if (counter > 0) {
-					ListNode newNode = new ListNode();
-					newNode.setValue(head.getValue());
-					currentNode.setValue(song);
-					newNode.setNext(head.getNext());
-					currentNode.setNext(newNode);
-				}
-
 			}
 		}
+//		} else {
+//			currentNode = head.getNext();
+//					//sets Song als wert fuer head 
+//					newNoad.setValue(head.getValue());
+//					head.setValue(song);
+//					head.setNext(newNoad);
+//				
+//			}
+//			else {
+//				
+//				int counter = -1;
+//				int stopper = 1;
+//
+//				// Findet die position unsuren songs
+//				while (stopper == 1 && currentNode != null) {
+//					stopper = song.compareTo(currentNode.getValue());
+//					currentNode = currentNode.getNext();
+//					counter++;
+//				}
+//
+//				//// neuen Knoten als erstes Element einfügen
+//				if (counter == 0) {
+//					ListNode newNode = new ListNode();
+//					newNode.setValue(song);
+//					newNode.setNext(head);
+//					head = newNode;
+//				}
+//
+//				// fuegt song for current song in die liste
+//				else if (counter > 0) {
+//					ListNode newNode = new ListNode();
+//					newNode.setValue(head.getValue());
+//					currentNode.setValue(song);
+//					newNode.setNext(head.getNext());
+//					currentNode.setNext(newNode);
+//				}
+//
+//			}
+//		}
 	}
 
 	@Override

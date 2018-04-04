@@ -75,11 +75,11 @@ public class Song2 implements Song {
 		String otherSong = o.getSongName();
 		String thisSong = this.getSongName();
 		for (int i = 0; i < otherSong.length(); i++) {
-			// Falls current naeher a ist
+			// if current is closer to A;
 			if (thisSong.charAt(i) < otherSong.charAt(i)) {
 				return -1;
 			}
-			// falls Buchstabe groesser
+			// if Current is closer to Z;
 			else if (thisSong.charAt(i) > otherSong.charAt(i)) {
 				return 1;
 			}

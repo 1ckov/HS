@@ -1,5 +1,4 @@
 package pr1.uebung10;
-import java.util.ArrayList;
 import static pr.MakeItSimple.readStringArray;
 
 import pr1.uebung07.StringExtension;
@@ -36,9 +35,9 @@ public class TestClass {
 //		}
 //		System.out.println(list.get(3).toString());
 		String[] testContent = readStringArray("src/pr1/uebung10/U10 songs.txt");
-		ArrayList<Song> list = new ArrayList <>(testContent.length);
+		OrderedList list = new ArrayList();
 		for(String song : testContent){
-			list.add(new Song2(song));
+			list.insert(new Song2(song));
 		}
 		for(int i = 0; i < testContent.length; i++){
 			System.out.println(list.get(i) + " " + i);

@@ -41,7 +41,7 @@ public class BloodAlcoholContent {
 		alkInGramm = readDouble();
 		// Has To be m or w;
 		String geschlecht = "";
-		while (!geschlecht.equals("m") || !geschlecht.equals("w")) {
+		while (!geschlecht.equals("m") && !geschlecht.equals("w")) {
 			println("Bitte Geschlecht (m/w) eingeben: ");
 			geschlecht = readString();
 		}
