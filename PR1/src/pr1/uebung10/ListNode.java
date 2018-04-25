@@ -4,9 +4,14 @@ public class ListNode {
     
     private ListNode next;
     private Song value;
-
+    
     public ListNode() {
-        next = null;
+    	next = null;
+    	value = null;
+    }
+    public ListNode(Song s, ListNode n){
+    	this.setNext(n);
+    	this.setValue(s);
     }
     
     public ListNode getNext() {

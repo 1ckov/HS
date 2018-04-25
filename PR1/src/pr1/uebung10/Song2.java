@@ -12,7 +12,7 @@ public class Song2 implements Song {
 	 * @param song - An array with the song data;
 	 */
 	public Song2(String song) {
-		//if object isn ull
+		//if object isnt null
 		if(song == null){
 			throw new PRException("The String is null");
 		}
@@ -51,40 +51,31 @@ public class Song2 implements Song {
 
 	@Override
 	public String toString() {
-		String songInfo = "";
-		String artistsHelp = "";
-
-		for (int i = 0; i < Artists.length; i++) {
-			if (i < Artists.length - 1) {
-				artistsHelp += Artists[i] + " & ";
-			}
-			else {
-				artistsHelp += Artists[i];
-			}
-		}
-
-		songInfo = "Song Name: " + this.SongName + "\n" + "Artist Name:  " + artistsHelp + "\n" + "Album Name: "
-				+ this.AlbumName + " ";
-		return songInfo;
-
+//		String songInfo = "";
+//		String artistsHelp = "";
+//
+//		for (int i = 0; i < Artists.length; i++) {
+//			if (i < Artists.length - 1) {
+//				artistsHelp += Artists[i] + " & ";
+//			}
+//			else {
+//				artistsHelp += Artists[i];
+//			}
+//		}
+//
+//		songInfo = "Song Name: " + this.SongName + "\n" + "Artist Name:  " + artistsHelp + "\n" + "Album Name: "
+//				+ this.AlbumName + " ";
+//		return songInfo;
+		return SongName;
 	}
+	
 
 	@Override
 	public int compareTo(Song o) {
 		// return this.toString().compareTo(o.toString());
 		String otherSong = o.getSongName();
 		String thisSong = this.getSongName();
-		for (int i = 0; i < otherSong.length(); i++) {
-			// if current is closer to A;
-			if (thisSong.charAt(i) < otherSong.charAt(i)) {
-				return -1;
-			}
-			// if Current is closer to Z;
-			else if (thisSong.charAt(i) > otherSong.charAt(i)) {
-				return 1;
-			}
-		}
-		return 0;
+		return thisSong.compareTo(otherSong);
 
 	}
 
